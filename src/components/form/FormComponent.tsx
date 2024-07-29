@@ -26,7 +26,6 @@ const FormComponent: React.FC = () => {
           <Typography
             variant="body2"
             sx={{
-             
               mb: 0.5,
               fontFamily: "'Poppins', sans-serif",
             }}
@@ -46,7 +45,6 @@ const FormComponent: React.FC = () => {
           <Typography
             variant="body2"
             sx={{
-             
               mb: 0.5,
               fontFamily: "'Poppins', sans-serif",
             }}
@@ -66,7 +64,6 @@ const FormComponent: React.FC = () => {
       <Typography
         variant="body2"
         sx={{
-         
           mb: 0.5,
           fontFamily: "'Poppins', sans-serif",
         }}
@@ -84,7 +81,6 @@ const FormComponent: React.FC = () => {
       <Typography
         variant="body2"
         sx={{
-         
           mb: 0.5,
           fontFamily: "'Poppins', sans-serif",
         }}
@@ -98,7 +94,6 @@ const FormComponent: React.FC = () => {
         placeholder="Apartment, Studio or Floor"
         multiline
         minRows={4} // Adjust the number of rows as needed
-       
         required
       />
 
@@ -107,7 +102,6 @@ const FormComponent: React.FC = () => {
           <Typography
             variant="body2"
             sx={{
-            
               mb: 0.5,
               fontFamily: "'Poppins', sans-serif",
             }}
@@ -121,7 +115,6 @@ const FormComponent: React.FC = () => {
           <Typography
             variant="body2"
             sx={{
-            
               mb: 0.5,
               fontFamily: "'Poppins', sans-serif",
             }}
@@ -135,7 +128,6 @@ const FormComponent: React.FC = () => {
           <Typography
             variant="body2"
             sx={{
-            
               mb: 0.5,
               fontFamily: "'Poppins', sans-serif",
             }}
@@ -154,16 +146,13 @@ const FormComponent: React.FC = () => {
       </Grid>
 
       <Button
-        
         sx={{
           marginTop: 2,
           alignSelf: "start",
           padding: "10px 50px",
           textTransform: "none",
-        
           backgroundColor: "#20C83C !important",
-          color:'white'
-          
+          color: "white",
         }}
       >
         Sign Up
