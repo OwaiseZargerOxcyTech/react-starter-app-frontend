@@ -11,12 +11,13 @@ interface SidebarProps {
 const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const drawerStyles = {
     "& .MuiDrawer-paper": {
-      width: { sm: "17em" },
+      width: { sm: "16.9em" },
       backgroundColor: "#f8f9fa",
       boxShadow: "rgba(0.05, 0.05, 0.05, 0.05) ",
       overflowX: "auto",
       px: "15px",
       scrollbarWidth: "thin",
+      
       
     },
   };
@@ -40,11 +41,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          gap: 2,
+          gap: 6,
         }}
       >
         
-        <img src={Logo} alt="Profile" style={{width:'50%',height:'auto'}}/>
+        <img src={Logo} alt="Profile" style={{width:'60%',height:'auto'}}/>
         <Box
           sx={{
             display: "flex",
@@ -61,11 +62,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           display: "flex",
           justifyContent: "center",
           position: "relative",
-          top: "5%",
+          top: "23%",
         }}
       >
         <Box sx={{ textAlign: "center"}}>
-          <Typography sx={{ fontSize: "0.8rem", fontWeight: "bold" }}>
+          <Typography sx={{ fontSize: "0.8rem" }}>
             gibberish
           </Typography>
           <Typography sx={{ fontSize: "0.7rem" }}>

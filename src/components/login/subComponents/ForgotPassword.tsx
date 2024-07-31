@@ -28,16 +28,14 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
     >
       <Box
         sx={{
-          width: { xs: "90%", sm: "70%", md: "50%", lg: "30%", xl: "30%" },
           backgroundColor: "white",
+          width: { xs: "90%", sm: "50%", md: "40%", lg: "30%", xl: "20%" },
           boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
           borderRadius: 2,
-          fontFamily: "'Poppins', sans-serif", // Matching font family with Signup page
         }}
       >
         <Typography
           sx={{
-            p: "1rem",
             m: 3,
             textAlign: "center",
             fontSize: "1.625rem",
@@ -51,12 +49,12 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
         </Typography>
         <Typography
           sx={{
-            px: 2,
+            px: 1,
             pb: 1,
             textAlign: "left",
-            color: "black",
-            fontSize: "1.375rem",
-            fontWeight: "bold",
+            color: "#333533",
+            fontSize: "20px",
+            
             fontFamily: "'Poppins', sans-serif",
           }}
         >
@@ -64,10 +62,10 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
         </Typography>
         <Typography
           sx={{
-            px: 2,
+            px: 1,
             pb: 1,
             textAlign: "left",
-            fontSize: "0.9375rem",
+            fontSize: "15px",
             color: "black",
             fontFamily: "'Poppins', sans-serif",
           }}
@@ -112,7 +110,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
               color: "white",
               textTransform: "none",
               borderRadius: "25px",
-              fontWeight: "bold",
+              
               fontFamily: "'Poppins', sans-serif",
             }}
           >

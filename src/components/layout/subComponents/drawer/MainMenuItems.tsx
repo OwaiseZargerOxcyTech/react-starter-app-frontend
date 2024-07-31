@@ -39,7 +39,7 @@ const mainMenuItems: MenuItem[] = [
     icon: <PersonOutlineOutlinedIcon />,
     route: "/",
   },
-  { text: "Item", icon: <CategoryIcon />, route: "/" },
+  { text: "Item", icon: <CategoryIcon />, route: "/table" },
   {
     text: "Menu 1",
     icon: <AccountBalanceWalletOutlinedIcon />,

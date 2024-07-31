@@ -53,11 +53,12 @@ const Login: React.FC<LoginProps> = () => {
     >
       <Box
         sx={{
-          backgroundColor: "white",
-          width: { xs: "90%", sm: "50%", md: "40%", lg: "30%", xl: "20%" },
-          
-          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+          boxShadow: 1,
+          bgcolor: "white",
+          width: { xs: "90%", sm: "70%", md: "50%", lg: "30%", xl: "30%" },
+
           borderRadius: 2,
+          fontFamily: "'Ubuntu' sans-serif",
         }}
       >
         <Typography
@@ -67,7 +68,6 @@ const Login: React.FC<LoginProps> = () => {
             fontSize: "1.625rem",
             fontWeight: "700",
             color: "#20C83C",
-            fontFamily: "'Poppins', sans-serif",
           }}
         >
           <InterestsOutlined sx={{ mr: 1, color: "#20C83C" }} />
@@ -76,25 +76,18 @@ const Login: React.FC<LoginProps> = () => {
         <Typography
           sx={{
             textAlign: "center",
-            color: "black",
-            fontSize: "14",
-            fontWeight: "bold",
-            fontFamily: "'Poppins', sans-serif",
+            color: "#333533",
+            fontSize: "15px",
           }}
         >
           Welcome to Project App!
         </Typography>
         <Typography
           sx={{
-            pl: 2,
-            pr: 4,
             pb: 2,
-            mb: 1,
-            fontSize: "14px",
-            fontWeight: "bold",
-            color: "black",
+            fontSize: "15px",
+            color: "#333533",
             textAlign: "center",
-            fontFamily: "'Poppins', sans-serif",
           }}
         >
           Please sign-in to your account and explore
@@ -103,10 +96,10 @@ const Login: React.FC<LoginProps> = () => {
           sx={{
             mb: "0.25rem",
             px: 2,
+
             fontSize: "0.8125rem",
             fontWeight: 400,
             color: "rgba(47, 43, 61, 0.78) !important",
-            fontFamily: "'Poppins', sans-serif",
           }}
         >
           Email
@@ -126,7 +119,6 @@ const Login: React.FC<LoginProps> = () => {
             fontSize: "0.8125rem",
             fontWeight: 400,
             color: "rgba(47, 43, 61, 0.78) !important",
-            fontFamily: "'Poppins', sans-serif",
           }}
         >
           Password
@@ -154,7 +146,7 @@ const Login: React.FC<LoginProps> = () => {
             ),
           }}
         />
-        <Box sx={{ mt: 0, px: 2 }}>
+        <Box sx={{ mt: 0, px: 1 }}>
           <Grid container alignItems="center" justifyContent="space-between">
             <Grid item sx={{ display: "flex", alignItems: "center" }}>
               <Checkbox
@@ -169,7 +161,7 @@ const Login: React.FC<LoginProps> = () => {
                 sx={{
                   color: "black !important",
                   fontSize: 14,
-                  fontFamily: "'Poppins', sans-serif",
+
                   "&:hover": {
                     cursor: "pointer",
                   },
@@ -185,7 +177,7 @@ const Login: React.FC<LoginProps> = () => {
                   color: "black",
                   fontSize: 14,
                   mr: 2,
-                  fontFamily: "'Poppins', sans-serif",
+
                   "&:hover": {
                     cursor: "pointer",
                   },
@@ -202,13 +194,11 @@ const Login: React.FC<LoginProps> = () => {
             onClick={handleLoginClick}
             sx={{
               backgroundColor: "#20C83C !important",
-              width: "60%",
+              width: "50%",
               fontSize: "0.9375rem",
               color: "white",
               textTransform: "none",
               borderRadius: "2rem",
-              fontWeight: "bold",
-              fontFamily: "'Poppins', sans-serif",
             }}
           >
             LOGIN
@@ -228,7 +218,7 @@ const Login: React.FC<LoginProps> = () => {
             sx={{
               color: "black !important",
               fontSize: 14,
-              fontFamily: "'Poppins', sans-serif",
+
               "&:hover": {
                 cursor: "pointer",
               },
@@ -242,7 +232,7 @@ const Login: React.FC<LoginProps> = () => {
                 color: "#20C83C",
                 ml: 1,
                 fontSize: 14,
-                fontFamily: "'Poppins', sans-serif",
+
                 "&:hover": {
                   cursor: "pointer",
                 },

@@ -1,12 +1,16 @@
+// src/routes/index.js
 import { createBrowserRouter, RouteObject } from "react-router-dom";
 import { Suspense, lazy } from "react";
 import App from "../App";
 import Loading from "../components/common/Loading";
-import FormComponent from "../components/form/FormComponent";
-
+import FormComponent from "../components/form";
+// import DataTable from "../components/paymentHistory"; // Ensure this path is correct
+import Table from "../components/dataTable";
 const Login = lazy(() => import("../components/login"));
 const Signup = lazy(() => import("../components/login/subComponents/Signup"));
-const ForgotPassword = lazy(() => import("../components/login/subComponents/ForgotPassword"));
+const ForgotPassword = lazy(
+  () => import("../components/login/subComponents/ForgotPassword")
+);
 
 const appRouter: RouteObject[] = [
   {
@@ -15,13 +19,26 @@ const appRouter: RouteObject[] = [
     children: [
       {
         path: "/",
-        element:<FormComponent />,
+        element: <FormComponent />,
+      },
+      // {
+      //   path: "/paymenthistory",
+      //   element: (
+      //     <Suspense fallback={<Loading />}>
+      //       <DataTable />
+      //     </Suspense>
+      //   ),
+      // },
+      {
+        path: "/table",
+        element: (
+          <Suspense fallback={<Loading />}>
+            <Table/>
+          </Suspense>
+        ),
       },
     ],
-    
   },
-
-  
   {
     path: "/login",
     element: (
