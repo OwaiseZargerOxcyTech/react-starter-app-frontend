@@ -1,24 +1,22 @@
 import React from "react";
 import { Box, IconButton, InputBase, Tooltip } from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
 import NotificationsNoneOutlinedIcon from "@mui/icons-material/NotificationsNoneOutlined";
 import ProfileMenu from "./ProfileMenu";
 import ProfileImg from "../../../../assets/images/profile.png";
+import { GridSearchIcon } from "@mui/x-data-grid";
 
 interface NavbarItemsProps {
   isOpen: boolean;
 }
 
-const NavbarItems: React.FC<NavbarItemsProps> = ({ isOpen }) => {
+const NavbarItems: React.FC<NavbarItemsProps> = ({ }) => {
   const [anchorProfileEl, setAnchorProfileEl] =
-    React.useState<HTMLAnchorElement | null>(null);
+    React.useState<HTMLButtonElement | null>(null);
 
-  //-------------
   const open = Boolean(anchorProfileEl);
-  //-------------
 
-  const handleProfileClick = (
-    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
+  const handleProfileClick: React.MouseEventHandler<HTMLButtonElement> = (
+    event
   ) => {
     setAnchorProfileEl(event.currentTarget);
   };
@@ -31,20 +29,26 @@ const NavbarItems: React.FC<NavbarItemsProps> = ({ isOpen }) => {
     <Box
       sx={{
         display: "flex",
-        flexDirection: isOpen
-          ? { xs: "column", md: "row" }
-          : { xs: "column", sm: "row" },
+        flexDirection: { sm: "row" },
         alignItems: "center",
+        justifyContent: "space-between",
+        p: 1, // Padding for spacing
+        backgroundColor: "background.paper", // Background color for visibility
+        borderRadius: 1, // Optional border radius
       }}
     >
-      <Box>
+      <Box
+        sx={{
+          flex: 1, // Allow search box to take available space
+          maxWidth: 400, // Max width for the search box
+          mr: 2, // Margin right for spacing
+        }}
+      >
         <InputBase
           sx={{
             width: "100%",
             py: 0.5,
             px: 1,
-            m: 1,
-            flex: 1, // Allow flexible width
             border: "1px solid #E0E0E0",
             borderRadius: 3,
             "& .MuiInputBase-input": {
@@ -52,36 +56,27 @@ const NavbarItems: React.FC<NavbarItemsProps> = ({ isOpen }) => {
             },
           }}
           placeholder="Search here…"
-          endAdornment={<SearchIcon sx={{ color: "grey"}} color="action" />}
+          endAdornment={<GridSearchIcon sx={{ color: "grey" }} />}
         />
       </Box>
       <Box
         sx={{
-          m: 1,
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
         }}
       >
         <Tooltip title="Notifications">
-          <IconButton sx={{ml:2}}>
+          <IconButton sx={{ ml: 2 }}>
             <NotificationsNoneOutlinedIcon />
           </IconButton>
         </Tooltip>
 
-        <Tooltip title="Shortcuts Menu">
-          <IconButton>
-            {/* <PersonOutlinedIcon sx={{bgcolor:'#20C83C' ,borderRadius:'15px',color:'white',fontSize:'2rem'}} /> */}
-            {/* <DashboardCustomizeOutlinedIcon sx={{ color: "black" }} /> */}
-          </IconButton>
-        </Tooltip>
+     
 
-        {/* --------------------------------------- */}
         <Tooltip title="Profile settings">
           <IconButton
             onClick={handleProfileClick}
             size="small"
-            href="" // Add an empty href
             aria-controls={open ? "account-menu" : undefined}
             aria-haspopup="true"
             aria-expanded={open ? "true" : undefined}
@@ -89,7 +84,7 @@ const NavbarItems: React.FC<NavbarItemsProps> = ({ isOpen }) => {
             <img
               src={ProfileImg}
               alt="Profile"
-              style={{ width: 32, height: 32, borderRadius: '50%'}}
+              style={{ width: 32, height: 32, borderRadius: '50%' }}
             />
           </IconButton>
         </Tooltip>

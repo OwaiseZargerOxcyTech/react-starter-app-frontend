@@ -80,12 +80,12 @@ const FormComponent: React.FC = () => {
           alignSelf: "start",
           padding: "10px 50px",
           textTransform: "none",
-          backgroundColor: "#20C83C",
+          backgroundColor: "#20C83C !important",
           color: "white",
           borderRadius: 6,
         }}
       >
-        Sign Up
+        Submit
       </Button>
     </Box>
   );

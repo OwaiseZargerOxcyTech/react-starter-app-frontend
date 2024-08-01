@@ -4,8 +4,9 @@ import { Suspense, lazy } from "react";
 import App from "../App";
 import Loading from "../components/common/Loading";
 import FormComponent from "../components/form";
-// import DataTable from "../components/paymentHistory"; // Ensure this path is correct
+
 import Table from "../components/dataTable";
+
 const Login = lazy(() => import("../components/login"));
 const Signup = lazy(() => import("../components/login/subComponents/Signup"));
 const ForgotPassword = lazy(
@@ -21,14 +22,7 @@ const appRouter: RouteObject[] = [
         path: "/",
         element: <FormComponent />,
       },
-      // {
-      //   path: "/paymenthistory",
-      //   element: (
-      //     <Suspense fallback={<Loading />}>
-      //       <DataTable />
-      //     </Suspense>
-      //   ),
-      // },
+     
       {
         path: "/table",
         element: (

@@ -70,7 +70,7 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({ isOpen, onClose }) => {
               display: "flex",
               justifyContent: "center",
               position: "relative",
-              top: "18%",
+              top: "20%",
             }}
           >
             <Box sx={{ textAlign: "center" }}>

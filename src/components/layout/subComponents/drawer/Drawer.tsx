@@ -45,7 +45,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         }}
       >
         
-        <img src={Logo} alt="Profile" style={{width:'60%',height:'auto'}}/>
+        <img src={Logo} alt="Profile" style={{width:'50%',height:'auto'}}/>
         <Box
           sx={{
             display: "flex",

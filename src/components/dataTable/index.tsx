@@ -56,6 +56,7 @@ const DataTable = () => {
                 color: textColor,
                 backgroundColor,
                 borderRadius: '20px',
+                width:'20%',
                 fontSize: 10,
                 borderColor: 'transparent',
                 '&:hover': {
