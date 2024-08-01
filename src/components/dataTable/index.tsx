@@ -51,12 +51,12 @@ const DataTable = () => {
 
           return (
             <Button
-              variant="outlined"
+             
               sx={{
                 color: textColor,
                 backgroundColor,
-                borderRadius: '20px',
-                width:'20%',
+                borderRadius: '15px',
+              
                 fontSize: 10,
                 borderColor: 'transparent',
                 '&:hover': {
