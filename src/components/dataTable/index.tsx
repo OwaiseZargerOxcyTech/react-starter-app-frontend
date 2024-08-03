@@ -103,8 +103,9 @@ const DataTable = () => {
       <MaterialReactTable
         columns={columns}
         data={filteredRows}
-        initialState={{ pagination: { pageIndex: 0, pageSize: 5 } }}
+        initialState={{ pagination: { pageIndex: 0, pageSize: 5,  }, density: 'compact',}}
         enableRowSelection
+        enableDensityToggle={false}
       />
     </div>
   );

@@ -12,13 +12,11 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
   const drawerStyles = {
     "& .MuiDrawer-paper": {
       width: { sm: "16.9em" },
-      backgroundColor: "#f8f9fa",
+      backgroundColor: "#F5F5F8",
       boxShadow: "rgba(0.05, 0.05, 0.05, 0.05) ",
       overflowX: "auto",
       px: "15px",
-      scrollbarWidth: "thin",
-      
-      
+      scrollbarWidth: "none",
     },
   };
 
@@ -37,15 +35,18 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
     >
       <Box
         sx={{
-          my: 2,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          gap: 6,
+          gap: 7,
+          p: 2,
         }}
       >
-        
-        <img src={Logo} alt="Profile" style={{width:'50%',height:'auto'}}/>
+        <img
+          src={Logo}
+          alt="LogoImg"
+          style={{ width: "60%", height: "auto" }}
+        />
         <Box
           sx={{
             display: "flex",
@@ -65,10 +66,8 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
           top: "23%",
         }}
       >
-        <Box sx={{ textAlign: "center"}}>
-          <Typography sx={{ fontSize: "0.8rem" }}>
-            gibberish
-          </Typography>
+        <Box sx={{ textAlign: "center" }}>
+          <Typography sx={{ fontSize: "0.8rem" }}>gibberish</Typography>
           <Typography sx={{ fontSize: "0.7rem" }}>
             @2024 All Rights Reserved
           </Typography>

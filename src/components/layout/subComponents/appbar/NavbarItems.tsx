@@ -33,7 +33,7 @@ const NavbarItems: React.FC<NavbarItemsProps> = ({ }) => {
         alignItems: "center",
         justifyContent: "space-between",
         p: 1, // Padding for spacing
-        backgroundColor: "background.paper", // Background color for visibility
+        backgroundColor: "#f8f9fa", // Background color for visibility
         borderRadius: 1, // Optional border radius
       }}
     >
@@ -49,6 +49,7 @@ const NavbarItems: React.FC<NavbarItemsProps> = ({ }) => {
             width: "100%",
             py: 0.5,
             px: 1,
+            bgcolor:'#f8f9fa',
             border: "1px solid #E0E0E0",
             borderRadius: 3,
             "& .MuiInputBase-input": {

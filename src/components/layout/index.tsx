@@ -55,10 +55,10 @@ const Layout: React.FC = () => {
             boxSizing: "border-box",
             overflow: "auto",
             maxWidth: "100vw",
-            boxShadow: "none", 
+        
           }}
         >
-          <Outlet />
+          <Outlet  />
         </Box>
       </Box>
     </>
