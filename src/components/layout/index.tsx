@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Hidden, useMediaQuery, Box, Paper } from "@mui/material";
+import { Hidden, useMediaQuery, Box } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
 import { Outlet } from "react-router-dom";
 import Drawer from "./subComponents/drawer/Drawer";
@@ -58,9 +58,11 @@ const Layout: React.FC = () => {
             maxWidth: "100vw",
           }}
         >
-          <Paper elevation={1} sx={{ m: { sm: 3 }, p: 4 }}>
+          {/* <Paper elevation={1} 
+            // sx={{ m: { sm: 3 }, p: 4 }} 
+          > */}
             <Outlet />
-          </Paper>
+          {/* </Paper> */}
         </Box>
       </Box>
     </>

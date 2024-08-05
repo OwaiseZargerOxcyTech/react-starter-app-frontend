@@ -3,6 +3,8 @@ import { Suspense, lazy } from "react";
 import App from "../App";
 import Loading from "../components/common/Loading";
 import FormComponent from "../components/form/FormComponent";
+import Dashboard from "../components/dashboard";
+
 
 const Login = lazy(() => import("../components/login"));
 const Signup = lazy(() => import("../components/login/subComponents/Signup"));
@@ -17,6 +19,10 @@ const appRouter: RouteObject[] = [
         path: "/",
         element:<FormComponent />,
       },
+      {
+        path: "/dashboard",
+        element:<Dashboard />,
+      }
     ],
     
   },

@@ -12,6 +12,9 @@ const FormComponent: React.FC = () => {
         width: { xs: "90%", sm: "70%", md: "50%", lg: "70%" },
         maxWidth: "600px",
         fontFamily: "'Poppins', sans-serif",
+        mt: 4,
+        ml: 4,
+        p: 4
       }}
     >
       {/* <Typography
