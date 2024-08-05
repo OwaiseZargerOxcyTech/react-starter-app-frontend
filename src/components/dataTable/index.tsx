@@ -1,4 +1,3 @@
-
 import { useMemo, useState } from 'react';
 import { MaterialReactTable, MRT_ColumnDef } from 'material-react-table';
 import { Typography, Button } from '@mui/material';
@@ -11,8 +10,6 @@ const DataTable = () => {
   const [filterText] = useState<string>('');
   const [rows, setRows] = useState<Row[]>(initialRows);
 
-
-
   const handleUpdateStatus = (id: number, newStatus: Row['status']) => {
     setRows(prevRows =>
       prevRows.map(row => (row.idInvoice === id ? { ...row, status: newStatus } : row))
@@ -21,7 +18,7 @@ const DataTable = () => {
 
   const columns = useMemo<MRT_ColumnDef<Row>[]>(
     () => [
-      { accessorKey: 'idInvoice', header: 'Invoice ID', size: 100, Cell: ({ cell }) => <div style={{ textAlign: 'center' }}>{cell.getValue<number>()}</div> },
+      { accessorKey: 'idInvoice', header: 'Invoice ID', size: 100 },
       { accessorKey: 'date', header: 'Date', size: 100 },
       { accessorKey: 'name', header: 'Name', size: 100 },
       { accessorKey: 'email', header: 'Email', size: 200 },
@@ -51,12 +48,10 @@ const DataTable = () => {
 
           return (
             <Button
-             
               sx={{
                 color: textColor,
                 backgroundColor,
                 borderRadius: '15px',
-              
                 fontSize: 10,
                 borderColor: 'transparent',
                 '&:hover': {
@@ -74,7 +69,7 @@ const DataTable = () => {
       {
         accessorKey: 'actions',
         header: '',
-        size: 10,
+        size: 50,
         Cell: ({ cell }) => <ActionsMenu row={cell.row.original} onUpdateStatus={handleUpdateStatus} />,
       },
     ],
@@ -95,18 +90,20 @@ const DataTable = () => {
   );
 
   return (
-    <div style={{ height: 500, width: '100%', padding: '1rem' }}>
+    <div style={{ width: '100%', padding: '1rem' }}>
       <Typography fontSize="1rem" gutterBottom sx={{ fontWeight: 'bold' }}>
         Payment History
       </Typography>
       
-      <MaterialReactTable
-        columns={columns}
-        data={filteredRows}
-        initialState={{ pagination: { pageIndex: 0, pageSize: 5,  }, density: 'compact',}}
-        enableRowSelection
-        enableDensityToggle={false}
-      />
+      <div style={{ overflowX: 'auto' }}>
+        <MaterialReactTable
+          columns={columns}
+          data={filteredRows}
+          initialState={{ pagination: { pageIndex: 0, pageSize: 5 }, density: 'compact' }}
+          enableRowSelection
+          enableDensityToggle={false}
+        />
+      </div>
     </div>
   );
 };
