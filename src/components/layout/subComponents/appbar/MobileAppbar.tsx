@@ -39,7 +39,7 @@ const MobileNavbar: React.FC<MobileNavbarProps> = ({
         >
           <Box display="flex" alignItems="center">
             <IconButton onClick={handleToggle} size="large" disableRipple>
-              <MenuIcon />
+              <MenuIcon sx={{color:'grey'}}/>
             </IconButton>
             <Typography variant="h5" color="slategray" fontWeight="bold">
              

@@ -23,7 +23,6 @@ const Layout: React.FC = () => {
     flexGrow: 1, // Allow main content to grow and shrink
     transition: "margin-left 0.2s ease-in-out",
     ml: isDrawerOpen ? { xs: 0, sm: "17rem" } : 0,
-    // maxHeight: "100vh",
   };
 
   return (
@@ -52,17 +51,14 @@ const Layout: React.FC = () => {
 
         <Box
           sx={{
-            maxHeight: `calc(100vh - 10vh )`,
+            maxHeight: `calc(100vh - 10vh)`,
             boxSizing: "border-box",
             overflow: "auto",
             maxWidth: "100vw",
+        
           }}
         >
-          {/* <Paper elevation={1} 
-            // sx={{ m: { sm: 3 }, p: 4 }} 
-          > */}
-            <Outlet />
-          {/* </Paper> */}
+          <Outlet  />
         </Box>
       </Box>
     </>

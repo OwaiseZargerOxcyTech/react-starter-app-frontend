@@ -20,7 +20,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
     <Box
       sx={{
         backgroundColor: "#f8f7fa",
-        minHeight: "90vh",
+        minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
@@ -28,17 +28,16 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
     >
       <Box
         sx={{
-          width: { xs: "90%", sm: "70%", md: "50%", lg: "30%", xl: "30%" },
           backgroundColor: "white",
+          width: { xs: "90%", sm: "70%", md: "50%", lg: "30%", xl: "30%" },
           boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
           borderRadius: 2,
-          fontFamily: "'Poppins', sans-serif", // Matching font family with Signup page
+          padding: { xs: 2, sm: 3, md: 4 },
         }}
       >
         <Typography
           sx={{
-            p: "1rem",
-            m: 3,
+            mb: 3,
             textAlign: "center",
             fontSize: "1.625rem",
             fontWeight: "700",
@@ -51,12 +50,11 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
         </Typography>
         <Typography
           sx={{
-            px: 2,
-            pb: 1,
+            mb: 1,
             textAlign: "left",
-            color: "black",
-            fontSize: "1.375rem",
-            fontWeight: "bold",
+            color: "#333533",
+            fontSize: "1.25rem",
+            fontWeight: "600",
             fontFamily: "'Poppins', sans-serif",
           }}
         >
@@ -64,24 +62,23 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
         </Typography>
         <Typography
           sx={{
-            px: 2,
-            pb: 1,
+            mb: 2,
             textAlign: "left",
-            fontSize: "0.9375rem",
-            color: "black",
+            fontSize: "1rem",
+            color: "#333533",
             fontFamily: "'Poppins', sans-serif",
           }}
         >
-          Enter your email and we’ll send you instructions to reset your
-          password
+          Enter your email and we’ll send you instructions to reset your password.
         </Typography>
+        <Box sx={{p:1}}>
         <Typography
           sx={{
-            mt: 2,
-            px: 2,
+            mb: 1,
+            textAlign: "left",
             fontSize: "0.8125rem",
-            fontWeight: 400,
-            color: "rgba(47, 43, 61, 0.78) !important",
+           
+            color: "#333533",
             fontFamily: "'Poppins', sans-serif",
           }}
         >
@@ -92,7 +89,8 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
           onChange={(e) => setUsername(e.target.value)}
           size="small"
           placeholder="johndoe@gmail.com"
-          sx={{ px: 2, width: "90%", fontSize: "0.675rem" }}
+          fullWidth
+          sx={{ mb: 3 }}
         />
         <Box
           sx={{
@@ -100,19 +98,18 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
             justifyContent: "center",
             alignItems: "center",
             width: "100%",
-            mt: 3,
+            mb: 3,
           }}
         >
           <Button
             variant="contained"
             sx={{
               backgroundColor: "#20C83C !important",
-              width: "auto%",
-              fontSize: "0.9375rem",
+              width: "auto",
+              fontSize: "14px",
               color: "white",
-              textTransform: "none",
+            
               borderRadius: "25px",
-              fontWeight: "bold",
               fontFamily: "'Poppins', sans-serif",
             }}
           >
@@ -124,25 +121,27 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
             display: "flex",
             justifyContent: "center",
             textAlign: "center",
-            mb: 4,
           }}
         >
           <Typography
             onClick={handleLoginRedirect}
             sx={{
               color: "#20C83C",
-              fontSize: 15,
-              mt: 2,
+              fontSize: "0.875rem",
+              fontWeight: 500,
               fontFamily: "'Poppins', sans-serif",
               "&:hover": {
                 cursor: "pointer",
               },
+              display: "flex",
+              alignItems: "center",
             }}
           >
-            <ArrowBackIosIcon sx={{ fontSize: 12 }} />
+            <ArrowBackIosIcon sx={{ fontSize: "0.75rem", mr: 0.5 }} />
             Back to login
           </Typography>
         </Box>
+      </Box>
       </Box>
     </Box>
   );

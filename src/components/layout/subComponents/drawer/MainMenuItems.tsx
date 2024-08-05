@@ -8,6 +8,7 @@ import {
   AccordionSummary,
   AccordionDetails,
   Typography,
+  Box,
 } from "@mui/material";
 import {
   AccountBalanceWalletOutlined as AccountBalanceWalletOutlinedIcon,
@@ -39,7 +40,7 @@ const mainMenuItems: MenuItem[] = [
     icon: <PersonOutlineOutlinedIcon />,
     route: "/",
   },
-  { text: "Item", icon: <CategoryIcon />, route: "/" },
+  { text: "Item", icon: <CategoryIcon />, route: "/table" },
   {
     text: "Menu 1",
     icon: <AccountBalanceWalletOutlinedIcon />,
@@ -78,23 +79,21 @@ const MenuItemComponent: React.FC<{ item: MenuItem }> = ({ item }) => {
             boxShadow: "none",
             color: "black",
             fontWeight: "bold",
+            bgcolor:'#F5F5F8'
           }}
           disableGutters
         >
           <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-            <ListItemIcon sx={{ color: "grey" }}>{item.icon}</ListItemIcon>
+            <ListItemIcon sx={{ color: "grey"}}>{item.icon}</ListItemIcon>
             <ListItemText
               primary={
-                <Typography
-                  variant="body2"
-                  style={{  color: "grey" }}
-                >
+                <Typography variant="body2" style={{ color: "grey"}}>
                   {item.text}
                 </Typography>
               }
             />
           </AccordionSummary>
-          <AccordionDetails>
+          <AccordionDetails sx={{ maxHeight: '300px', overflowY: 'visible' }}>
             <List sx={{ mt: -3 }}>
               {item.subMenuItems.map((subItem, index) => (
                 <ListItem
@@ -106,8 +105,7 @@ const MenuItemComponent: React.FC<{ item: MenuItem }> = ({ item }) => {
                     boxShadow: "none",
                     textDecoration: "none",
                     color: "black",
-                    fontWeight: "bold",
-                   
+                    
                   }}
                 >
                   <ListItemIcon sx={{ color: "grey" }}>
@@ -117,7 +115,11 @@ const MenuItemComponent: React.FC<{ item: MenuItem }> = ({ item }) => {
                     primary={
                       <Typography
                         variant="body2"
-                        style={{ color: "grey" , fontFamily: "'Poppins', sans-serif"}}
+                        style={{
+                          color: "grey",
+                          // fontFamily: "'Poppins', sans-serif",
+                         
+                        }}
                       >
                         {subItem.text}
                       </Typography>
@@ -135,8 +137,8 @@ const MenuItemComponent: React.FC<{ item: MenuItem }> = ({ item }) => {
           sx={{
             textDecoration: "none",
             color: "black",
-            fontWeight: "bold",
-             fontFamily: "'Poppins', sans-serif"
+          
+            fontFamily: "'Poppins', sans-serif",
           }}
         >
           <ListItemIcon sx={{ color: "grey" }}>{item.icon}</ListItemIcon>
@@ -144,7 +146,7 @@ const MenuItemComponent: React.FC<{ item: MenuItem }> = ({ item }) => {
             primary={
               <Typography
                 variant="body2"
-                style={{  color: "grey", fontFamily: "'Poppins', sans-serif" }}
+                style={{ color: "grey", fontFamily: "'Poppins', sans-serif" }}
               >
                 {item.text}
               </Typography>
@@ -158,11 +160,13 @@ const MenuItemComponent: React.FC<{ item: MenuItem }> = ({ item }) => {
 
 const MainMenu: React.FC = () => {
   return (
-    <List>
-      {mainMenuItems.map((item, index) => (
-        <MenuItemComponent key={index} item={item} />
-      ))}
-    </List>
+    <Box sx={{ maxHeight: '100vh', overflow: 'hidden' }}>
+      <List>
+        {mainMenuItems.map((item, index) => (
+          <MenuItemComponent key={index} item={item} />
+        ))}
+      </List>
+    </Box>
   );
 };
 

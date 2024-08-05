@@ -18,6 +18,7 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDrawer, isOpen }) => {
       sx={{
         bgcolor: "#f8f9fa",
         position: "sticky",
+        boxShadow: 1, 
       }}
     >
       <Toolbar
@@ -33,7 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({ onToggleDrawer, isOpen }) => {
             <MenuIcon sx={{ color: 'grey' }} />
           </IconButton>
           <Typography variant="h5" color="black" fontWeight="bold">
-  
+            {/* Add your title or logo here */}
           </Typography>
         </Box>
 

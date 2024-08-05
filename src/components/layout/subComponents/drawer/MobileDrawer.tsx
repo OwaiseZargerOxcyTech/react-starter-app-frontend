@@ -49,14 +49,16 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({ isOpen, onClose }) => {
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
+           
             }}
           >
             <img
               src={Logo}
               alt="Logo"
               style={{
-                width: "100px", 
+                width: "60%", 
                 height: "auto",
+                marginRight:'1rem'
               }}
             />
           </Box>
@@ -68,11 +70,11 @@ const MobileSidebar: React.FC<MobileSidebarProps> = ({ isOpen, onClose }) => {
               display: "flex",
               justifyContent: "center",
               position: "relative",
-              top: "2%",
+              top: "20%",
             }}
           >
             <Box sx={{ textAlign: "center" }}>
-              <Typography sx={{ fontSize: "0.7rem", fontWeight: "bold" }}>
+              <Typography sx={{ fontSize: "0.8rem"}}>
                 gibberish
               </Typography>
               <Typography sx={{ fontSize: "0.7rem" }}>
