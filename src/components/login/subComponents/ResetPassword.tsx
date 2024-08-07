@@ -6,25 +6,26 @@ import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-interface ForgotPasswordProps {}
+interface ResetPasswordProps {}
 
-const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
-  const [email, setEmail] = useState<string>("");
+const ResetPassword: React.FC<ResetPasswordProps> = () => {
+  const [otp, setOtp] = useState<string>("");
+  const [newPassword, setNewPassword] = useState<string>("");
 
   const navigate = useNavigate();
 
-  const forgotURL = import.meta.env.VITE_API_URL + "auth/forgot-password";
+  const resetURL = import.meta.env.VITE_API_URL + "auth/reset-password";
 
-  const sendResetLink = async (e: FormEvent) => {
+  const resetPassword = async (e: FormEvent) => {
     try{
       e.preventDefault();
-      const response = await axios.post(forgotURL, {
-        email,
+      const response = await axios.post(resetURL, {
+        otp,
+        newPassword
       });
       console.log(response.data);
-      alert("OTP for password reset sent to Email");
-      setEmail("");
-      navigate("/reset-password");
+      alert("Password has been reset successfully!!");
+      navigate("/login");
     }
     catch (err) {
       alert(`Error: ${err}`);
@@ -77,9 +78,9 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
             fontFamily: "'Poppins', sans-serif",
           }}
         >
-          Forgot Password?
+          Reset Password
         </Typography>
-        <Typography
+        {/* <Typography
           sx={{
             mb: 2,
             textAlign: "left",
@@ -89,8 +90,8 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
           }}
         >
           Enter your email and we’ll send you instructions to reset your password.
-        </Typography>
-        <form onSubmit={sendResetLink}>
+        </Typography> */}
+        <form onSubmit={resetPassword}>
           <Box sx={{p:1}}>
             <Typography
               sx={{
@@ -102,11 +103,31 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
                 fontFamily: "'Poppins', sans-serif",
               }}
             >
-              Email
+              OTP
             </Typography>
             <TextField
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
+              size="small"
+              placeholder="johndoe@gmail.com"
+              fullWidth
+              sx={{ mb: 3 }}
+            />
+            <Typography
+              sx={{
+                mb: 1,
+                textAlign: "left",
+                fontSize: "0.8125rem",
+              
+                color: "#333533",
+                fontFamily: "'Poppins', sans-serif",
+              }}
+            >
+              New Password
+            </Typography>
+            <TextField
+              value={newPassword}
+              onChange={(e) => setNewPassword(e.target.value)}
               size="small"
               placeholder="johndoe@gmail.com"
               fullWidth
@@ -121,21 +142,21 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
                 mb: 3,
               }}
             >
-            <Button
-              variant="contained"
-              type="submit"
-              sx={{
-                backgroundColor: "#20C83C !important",
-                width: "auto",
-                fontSize: "14px",
-                color: "white",
-                borderRadius: "25px",
-                fontFamily: "'Poppins', sans-serif",
-              }}
-            >
-              SEND RESET LINK
-            </Button>
-          </Box>
+              <Button
+                variant="contained"
+                type="submit"
+                sx={{
+                    backgroundColor: "#20C83C !important",
+                    width: "auto",
+                    fontSize: "14px",
+                    color: "white",
+                    borderRadius: "25px",
+                    fontFamily: "'Poppins', sans-serif",
+                }}
+                >
+                    Reset Password
+              </Button>
+            </Box>
           <Box
             sx={{
               display: "flex",
@@ -168,4 +189,4 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
   );
 };
 
-export default ForgotPassword;
+export default ResetPassword;

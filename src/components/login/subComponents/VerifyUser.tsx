@@ -2,38 +2,34 @@ import React, { FormEvent } from "react";
 import { TextField, Button, Typography, Box } from "@mui/material";
 import { useState } from "react";
 import { InterestsOutlined } from "@mui/icons-material";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+// import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-interface ForgotPasswordProps {}
+interface VerifyUserProps {}
 
-const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
-  const [email, setEmail] = useState<string>("");
+const VerifyUser: React.FC<VerifyUserProps> = () => {
+  const [otp, setOtp] = useState<string>("");
 
   const navigate = useNavigate();
 
-  const forgotURL = import.meta.env.VITE_API_URL + "auth/forgot-password";
+  const verifyURL = import.meta.env.VITE_API_URL + "auth/verify-email";
 
-  const sendResetLink = async (e: FormEvent) => {
+  const verifyOtp = async (e: FormEvent) => {
     try{
       e.preventDefault();
-      const response = await axios.post(forgotURL, {
-        email,
+      const response = await axios.post(verifyURL, {
+        otp,
       });
       console.log(response.data);
-      alert("OTP for password reset sent to Email");
-      setEmail("");
-      navigate("/reset-password");
+      alert("Email verified successfully!");
+      setOtp("");
+      navigate("/login");
     }
     catch (err) {
       alert(`Error: ${err}`);
     }
   }
-
-  const handleLoginRedirect = (): void => {
-    navigate("/login");
-  };
 
   return (
     <Box
@@ -77,7 +73,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
             fontFamily: "'Poppins', sans-serif",
           }}
         >
-          Forgot Password?
+          Verify User
         </Typography>
         <Typography
           sx={{
@@ -88,9 +84,9 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
             fontFamily: "'Poppins', sans-serif",
           }}
         >
-          Enter your email and we’ll send you instructions to reset your password.
+          Enter otp which is send to your email address.
         </Typography>
-        <form onSubmit={sendResetLink}>
+        <form onSubmit={verifyOtp}>
           <Box sx={{p:1}}>
             <Typography
               sx={{
@@ -102,11 +98,11 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
                 fontFamily: "'Poppins', sans-serif",
               }}
             >
-              Email
+              OTP
             </Typography>
             <TextField
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
               size="small"
               placeholder="johndoe@gmail.com"
               fullWidth
@@ -133,10 +129,10 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
                 fontFamily: "'Poppins', sans-serif",
               }}
             >
-              SEND RESET LINK
+              Verify
             </Button>
           </Box>
-          <Box
+          {/* <Box
             sx={{
               display: "flex",
               justifyContent: "center",
@@ -160,7 +156,7 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
               <ArrowBackIosIcon sx={{ fontSize: "0.75rem", mr: 0.5 }} />
                 Back to login
             </Typography>
-            </Box>
+            </Box> */}
           </Box>
         </form>
       </Box>
@@ -168,4 +164,4 @@ const ForgotPassword: React.FC<ForgotPasswordProps> = () => {
   );
 };
 
-export default ForgotPassword;
+export default VerifyUser;

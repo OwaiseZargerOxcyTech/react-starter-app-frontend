@@ -24,6 +24,8 @@ const Signup: React.FC<SignupProps> = () => {
   const [password, setPassword] = useState<string>("");
   const [showPassword, setShowPassword] = useState<boolean>(false);
 
+  const signupURL = import.meta.env.VITE_API_URL + "auth/register";
+
   const navigate = useNavigate();
 
   const handleSigninRedirect = (): void => {
@@ -38,13 +40,14 @@ const Signup: React.FC<SignupProps> = () => {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:3000/auth/register", {
+      const response = await axios.post(signupURL, {
         username,
         email,
         password,
       });
       console.log(response.data);
-
+      alert("Signup Successfully");
+      navigate("/verify-user");
       // Clear the form fields
       setUsername("");
       setPassword("");

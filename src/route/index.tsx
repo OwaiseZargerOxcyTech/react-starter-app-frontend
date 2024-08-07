@@ -11,6 +11,8 @@ const Signup = lazy(() => import("../components/login/subComponents/Signup"));
 const ForgotPassword = lazy(
   () => import("../components/login/subComponents/ForgotPassword")
 );
+const ResetPassword = lazy(() => import("../components/login/subComponents/ResetPassword"));
+const VerifyUser = lazy(() => import("../components/login/subComponents/VerifyUser"));
 
 const appRouter: RouteObject[] = [
   {
@@ -60,6 +62,22 @@ const appRouter: RouteObject[] = [
       </Suspense>
     ),
   },
+  {
+    path: "/reset-password",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <ResetPassword />
+      </Suspense>
+    ),
+  },
+  {
+    path: "/verify-user",
+    element: (
+      <Suspense fallback={<Loading />}>
+        <VerifyUser />
+      </Suspense>
+    ),
+  }
 ];
 
 const router = createBrowserRouter(appRouter);
