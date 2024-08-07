@@ -1,8 +1,9 @@
 import React, { FormEvent } from "react";
-import { TextField, Button, Typography, Box } from "@mui/material";
+import { TextField, Button, Typography, Box, IconButton } from "@mui/material";
 import { useState } from "react";
 import { InterestsOutlined } from "@mui/icons-material";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import { Visibility, VisibilityOff} from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -11,10 +12,14 @@ interface ResetPasswordProps {}
 const ResetPassword: React.FC<ResetPasswordProps> = () => {
   const [otp, setOtp] = useState<string>("");
   const [newPassword, setNewPassword] = useState<string>("");
-
+  const [showPassword, setShowPassword] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const resetURL = import.meta.env.VITE_API_URL + "auth/reset-password";
+
+  const handleTogglePasswordVisibility = (): void => {
+    setShowPassword((prev) => !prev);
+  };
 
   const resetPassword = async (e: FormEvent) => {
     try{
@@ -109,7 +114,7 @@ const ResetPassword: React.FC<ResetPasswordProps> = () => {
               value={otp}
               onChange={(e) => setOtp(e.target.value)}
               size="small"
-              placeholder="johndoe@gmail.com"
+              placeholder="otp"
               fullWidth
               sx={{ mb: 3 }}
             />
@@ -126,12 +131,28 @@ const ResetPassword: React.FC<ResetPasswordProps> = () => {
               New Password
             </Typography>
             <TextField
+            fullWidth
+              type={showPassword ? "text" : "password"}
               value={newPassword}
               onChange={(e) => setNewPassword(e.target.value)}
               size="small"
-              placeholder="johndoe@gmail.com"
-              fullWidth
-              sx={{ mb: 3 }}
+              placeholder="Password"
+              sx={{ mb: 3}}
+              InputProps={{
+                endAdornment: (
+                  <IconButton
+                    onClick={handleTogglePasswordVisibility}
+                    size="small"
+                    sx={{
+                      "&:hover": {
+                        backgroundColor: "transparent",
+                      },
+                    }}
+                  >
+                    {showPassword ? <Visibility /> : <VisibilityOff />}
+                  </IconButton>
+                ),
+              }}
             />
             <Box
               sx={{
